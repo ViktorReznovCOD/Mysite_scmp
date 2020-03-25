@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'scmp',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -76,10 +77,11 @@ WSGI_APPLICATION = 'tcc01Project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'scmpdb',
-        'USER': 'postgres',
+        'NAME': 'scmp_banco', #aqui vai o nome do banco de dados criado no server dbserver1
+        'USER': 'postgres', #usuario configurado 
         'PASSWORD': '123456',
-        'HOST': 'localhost'
+        'HOST': 'localhost',
+        'PORT': '5432'
     }
 }
 
