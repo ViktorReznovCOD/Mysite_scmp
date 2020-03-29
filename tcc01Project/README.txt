@@ -23,7 +23,8 @@
          'NAME': 'scmpdb',
          'USER': 'postgres',
          'PASSWORD': '123456',
-         'HOST': 'localhost'
+         'HOST': 'localhost',
+		 'PORT': 5432
  }
 }
 	6) ### foi criado o administrador do site para gerenciamento do conte�do atrav�s da url 'localhost:8000/admin'
@@ -31,3 +32,7 @@
 	nome do usuario = 'admin'
 	email = 'ofc.felipearaujo@gmail.com'
 	senha = 'admin'
+	--------------
+	nome do usuario = 'admin2'
+	email = 'ofc.felipearaujo@gmail.com'
+	senha = 'biacris1204'
