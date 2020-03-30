@@ -32,14 +32,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'scmp',
-    'users_',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'scmp',
+#    'users',  # not working
 ]
 
 MIDDLEWARE = [
@@ -80,8 +80,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'scmp_banco', #aqui vai o nome do banco de dados criado no server dbserver1
-        'USER': 'postgres', #usuario configurado 
-        'PASSWORD': '123456',
+        'USER': 'scmp_banco', #usuario configurado (uses a non-postgres-root user on your database)
+        'PASSWORD': 'scmp_banco',
         'HOST': 'localhost',
         'PORT': '5432'
     }
@@ -123,8 +123,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static_files/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static_files')
+    os.path.join(BASE_DIR, 'frontend', 'static')
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
