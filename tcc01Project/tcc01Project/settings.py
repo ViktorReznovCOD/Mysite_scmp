@@ -80,8 +80,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'scmp_banco', #aqui vai o nome do banco de dados criado no server dbserver1
-        'USER': 'scmp_banco', #usuario configurado (uses a non-postgres-root user on your database)
-        'PASSWORD': 'scmp_banco',
+        #'USER': 'scmp_banco', #usuario configurado (uses a non-postgres-root user on your database)
+        'USER': 'postgres', #usuario configurado (uses a non-postgres-root user on your database)
+        #'PASSWORD': 'scmp_banco',
+        'PASSWORD': '123456',
         'HOST': 'localhost',
         'PORT': '5432'
     }
@@ -123,8 +125,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/frontend/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'frontend', 'static')
+    os.path.join(BASE_DIR, 'frontend')
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static') #ESTE É A SAÍDA, ARQUIVO QUE SERÁ GERADO APÓS O COMANDO COLLECTSTATIC

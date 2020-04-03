@@ -18,6 +18,6 @@ from django.urls import path, include
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-#    path('', include('home.urls'))   # the app 'home' does not exists
+    path('', include('scmp.urls')),   # the app 'home' does not exists
+    path('admin/', admin.site.urls)
 ]
