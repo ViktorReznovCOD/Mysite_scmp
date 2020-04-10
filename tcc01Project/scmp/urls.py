@@ -4,5 +4,7 @@ from . import views
 
 urlpatterns  = [
     path('',  views.home, name='home'),#pagina principal
+    path('novousuario', views.novousuario, name='novousuario'),
+    path('sobrenos', views.sobrenos, name='sobrenos')
     #path('cadastroequip',views.cadastroEquip, name='cadastroequip') not working
 ]

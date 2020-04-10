@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Novo Usuario - SCMP</title>
+
+    <meta name="description" content="Source code generated using layoutit.com">
+	<meta name="author" content="LayoutIt!">
+	
+	<link rel="stylesheet" href="{% static 'static/admin/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'static/admin/js/bootstrap.min.js' %}">
+	
+  </head>
+  <body>
+	{% include 'partials/navegacao.html' %}
+
+ 
+    <div class="container">
+        <h1>Novo usuário</h1>
+            <div class=".alert">
+            <p>Esta página é designada para a inscrição de usuários</p>
+            </div><hr>
+
+    <div class=""><div class="form-group">
+        <form action="{% url 'novousuario' %}" method="POST">{% csrf_token %}
+        <label>Nome</label><br>
+        <input type="text" name="Nome" required><br>
+        
+        <label>cpf</label><br>
+        <input type="text" name="cpf" required><br>
+
+        <label>Email</label><br>
+        <input type="email" name="Email" required><br>
+
+        <label>Matricula</label><br>
+        <input type="text" name="Matricula" required><br>
+
+        <label>Senha</label><br>
+        <input type="password" name="Senha1" placeholder="Senha" required>
+        <input type="password" name="Senha2" placeholder="Repita a senha" required>
+
+        <button type="submit" class="btn btn-primary">Criar</button>
+        </form>
+    </div></div>
+    </div>

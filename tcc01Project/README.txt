@@ -3,7 +3,7 @@
  Para executar, atrav�s do prompt de comando certifique-se que voc� est� localizado em: "c:\<usuario>\documents\github\mysite_scmp".
  E em seguida execute o seguinte comando: "venv\Scripts\activate.bat"
 
-### Para instalar o django neste diret�rio:
+# Para instalar o django neste diret�rio:
 	1) '>pip install django'
 	2) '>pip freeze
 		asgiref==3.2.5
@@ -27,7 +27,7 @@
 		 'PORT': 5432
  }
 }
-	6) ### foi criado o administrador do site para gerenciamento do conte�do atrav�s da url 'localhost:8000/admin'
+	6) # foi criado o administrador do site para gerenciamento do conte�do atrav�s da url 'localhost:8000/admin'
 	 'c:\users\<user>\documents\github\Mysite_scmp\tcc01project>python manage.py createsuperuser'
 	nome do usuario = 'admin'
 	email = 'ofc.felipearaujo@gmail.com'
@@ -36,3 +36,4 @@
 	nome do usuario = 'admin2'
 	email = 'ofc.felipearaujo@gmail.com'
 	senha = 'biacris1204'
+
