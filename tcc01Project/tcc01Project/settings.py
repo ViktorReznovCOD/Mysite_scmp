@@ -78,13 +78,13 @@ WSGI_APPLICATION = 'tcc01Project.wsgi.application'
 
 DATABASES = {
     'default': {
+        #teste de conexao com banco postgres  (dbeaver)
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'scmp_banco', #aqui vai o nome do banco de dados criado no server dbserver1
-        #'USER': 'scmp_banco', #usuario configurado (uses a non-postgres-root user on your database)
+        'NAME': 'postgres',
         'USER': 'postgres', #usuario configurado (uses a non-postgres-root user on your database)
-        #'PASSWORD': 'scmp_banco',
         'PASSWORD': '123456',
         'HOST': 'localhost',
+        'SCHEMA':'manga',
         'PORT': '5432'
     }
 }

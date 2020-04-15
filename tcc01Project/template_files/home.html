@@ -14,7 +14,14 @@
 	
 	<link rel="stylesheet" href="{% static 'static/admin/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'static/admin/js/bootstrap.min.js' %}">
-	
+
+	<script>
+        var formnull = document.getElementsByName('email');
+        if (formnull==""){
+            alert("")
+        }
+    </script>
+
   </head>
   <body>
 	{% include 'partials/navegacao.html' %}
@@ -23,22 +30,22 @@
         <div class="row">
             <div class="col-4">
                 <h2>Entrar</h2>
-                <form method="GET">
+                <form action="{% url 'home' %}" method="POST"> {% csrf_token %}
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Usuário</label>
-                        <input type="text" class="form-control" id="matricula" aria-describedby="matriculaServidor"
-                            placeholder="ex: 75060554">
-                        <small id="matriculaHelp" class="form-text text-muted"></small>
+                        <label>Email</label>
+                        <input type="text" class="form-control" name="email" aria-describedby="matriculaServidor"
+                            placeholder="">
+                        <small id="matriculaHelp" class="form-text text-muted">email institucional</small>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Senha</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
+                        <input type="password" class="form-control" name="senha" placeholder="">
                     </div>
                     <button type="submit" class="btn btn-primary">Entrar</button>
                 </form>
             </div>
             <div class="col">
-                <img src="{% static 'static/admin/img/policia.png'%}" alt="" style="width: 300px;height:300px;" srcset="">
+                <img src="{% static 'static/admin/img/policia.png'%}" alt="" style="width: 300px;height:300px;" >
             </div>
         </div>
     </div>
