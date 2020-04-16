@@ -1,0 +1,24 @@
+user = authenticate(request, email = email, password = senha)
+        print(user)
+        if request.user.is_authenticated:
+            return redirect('dashboard')
+        else:
+            print('not authenticate user')
+    return render(request,'home.html')
+'''
+        if User.objects.filter(email=email).exists():
+            nome = User.objects.filter(email=email).values_list('username', flat=True).get()
+            user = auth.authenticate(request, username=nome, password=senha)
+            if user is not None:
+                auth.login(request, user)
+                print('TESTE USER IS NOT NONE|usuario loggado:', user)
+                return redirect ('dashboard')
+            print('LOG: USUARIO LOGADO: ',nome)
+        else:
+            print('LOG_ERR: USUARIO NAO ENCONTRADO NO BANCO DE DADOS - AUTH_USER')
+        return redirect('dashboard')'''
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+user = authenticate(request, username=nameuser, password=password)
+        if user is not None:
+            print('USUARIO LOGADO: ',user)
+            return redirect('dashboard')

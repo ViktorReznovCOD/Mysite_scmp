@@ -1,17 +1,26 @@
 from django.shortcuts import render, redirect
 from tcc01Project import urls
 from django.contrib.auth.models import User
+from django.contrib import auth
+from django.contrib.auth import authenticate
+
 # Create your views here.
 def home(request):
     if request.method == 'POST':
         email = request.POST['email']
-        senha = request.POST['senha']
-        if email =="" or senha =="":
-            print('LOG_ERR: OS CAMPOS NAO DEVEM ESTAR EM BRANCO')
-
-        print(senha,email)
-    return render(request,'home.html')
-    
+        password = request.POST['senha']
+        if User.objects.filter(email=email).exists():
+            nome = User.objects.filter(email=email).values_list('username', flat=True).get()
+            user = auth.authenticate(request, username=nome, password=password)
+            if user is not None:
+                auth.login(request, user)
+                print('TESTE USER IS NOT NONE|usuario loggado:', user)
+                return redirect ('dashboard')
+            print('LOG: USUARIO LOGADO: ',nome)
+        else:
+            print('user nao authenticate')
+            return redirect('home')
+    return render (request, 'home.html')
 def novousuario(request):
     if request.method == 'POST':
         Nome = request.POST['Nome']
