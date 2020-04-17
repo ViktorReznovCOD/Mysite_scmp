@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,51 +47,52 @@
             <div class="col-12">
             <p>Todos os campos são obrigatórios</p>
                 <div class="contact-form-area">
-                    <form action="{% url 'equipamentos' %}" method="post" enctype="multipart/form-data">
-                            {% csrf_token %}
+                    <form action="{% url 'equipamentos' %}" method="POST">{% csrf_token %}
                         <div class="row">
                             <div class="col-12 col-lg-2">
-                                <label for="acervo_equipamento"><b>Patrimonio</b></label>
-                                <input type="text" id="patrimonio" class="form-control" name="patrimonio" placeholder="P99999" required>
+                                <label><b>Patrimonio</b></label>
+                                <input type="text" class="form-control" name="patrimonio" placeholder="P99999" required>
                             </div>
                             <div class="col-12 col-lg-2">
-                                <label for="acervo_equipamento"><b>Número de série</b></label>
-                                <input type="text" id="num_serie" class="form-control" name="num_serie" placeholder="" required>
+                                <label><b>Número de série</b></label>
+                                <input type="text" class="form-control" name="num_serie" placeholder="" required>
                             </div>
                             <div class="col-12 col-lg-2">
-                                <label for="acervo_equipamento"><b>Unidade</b></label>
-                                <input type="text" id="unidade" class="form-control" name="unidade" placeholder="ex: 'Diretoria'" required>
-                            </div><br><br><br>
-                            <div class="col-12 col-lg-2">
-                                <label for="acervo_equipamento"><b>Status</b></label>
-                                <select name="status" id="status">
+                                <label><b>Unidade</b></label>
+                                <input type="text" class="form-control" name="unidade" placeholder="ex: 'Diretoria'" required>
+                            </div>
+                        </div><br>
+                            <div class="col-12 col-lg-5">
+                                <label><b>Status</b></label>
+                                <select name="status">
                                     <option value="1">Ativo</option>
                                     <option value="2">Inativo</option>
                                 </select>
                             </div>
                             <div class="col-12 col-lg-5">
-                                <label for="file"><b>Marca</b></label><br>
-                                <label><b><input type="radio">Dell</b></input></label>
-                                <label><b><input type="radio">Hewlett-Packard (HP)</b></input></label>
-                                <label><b><input type="radio">Positivo</b></input></label>    
-                            </div>                    
-                            
+                                <label><b>Marca</b></label>
+                                <select name="marca">
+                                    <option value="1">Dell</option>
+                                    <option value="2">HP</option>
+                                    <option value="3">Positivo</option>
+
+                                </select>
+                            </div>                      
                             <div class="col-12 col-lg-3">
                                 <label for="file"><b>nota fiscal</b></label>
                                 <input type="text" class="form-control" name="nota fiscal" placeholder="" required>
                             </div>
                             <div class="col-12">
                                 <label for="file"><b>Descrição</b></label>
-                                <textarea class="form-control" name="descrição" cols="20" rows="5" placeholder="." required></textarea>
+                                <textarea class="form-control" name="descrição" cols="20" rows="3" placeholder="." required></textarea>
                             </div>
-                            <div class="col-12 col-lg-3">
+                           <!-- <div class="col-12 col-lg-3">
                                 <label for="file"><b>Gerar QrCode</b></label>
                                 <input type="file" class="form-control" name="foto_receita" required>
-                            </div>
+                            </div>-->
                             <div class="col-12 text-center">
-                                <button class="" type="submit">Submeter dados</button>
+                                <button type="submit" class="btn btn-primary">Submeter</button>
                             </div>
-                        </div>
                     </form>
                 </div>
             </div>
