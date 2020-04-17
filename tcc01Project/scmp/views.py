@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate
 
 # Create your views here.
 def home(request):
+
     if request.method == 'POST':
         email = request.POST['email']
         password = request.POST['senha']
@@ -14,13 +15,23 @@ def home(request):
             user = auth.authenticate(request, username=nome, password=password)
             if user is not None:
                 auth.login(request, user)
-                print('TESTE USER IS NOT NONE|usuario loggado:', user)
+                print('LOG: USUARIO LOGADO: ',user)
+                print('LOGIN REALIZADO COM SUCESSO')
                 return redirect ('dashboard')
-            print('LOG: USUARIO LOGADO: ',nome)
+            
         else:
             print('user nao authenticate')
             return redirect('home')
     return render (request, 'home.html')
+def logout(request):
+    auth.logout(request)
+    return redirect ('home')
+def dashboard(request):
+    if request.user.is_authenticated:
+        return render (request,'dashboard.html')
+    else:
+        return redirect('home')
+
 def novousuario(request):
     if request.method == 'POST':
         Nome = request.POST['Nome']
@@ -50,9 +61,10 @@ def novousuario(request):
         
     else:
         return render(request,'novousuario.html')
-    
+
+def equipamentos(request):
+    #ADCIONAR REGRA DE USER.IS_AUTHENTICATED PARA HAVER A REGRA DE USUARIO ESTAR LOGADO PARA UTILIZAR ESSA PAGINA
+    return render(request, 'equipamentos.html')
+
 def sobrenos(request):
     return render(request, 'sobrenos.html')
-
-def dashboard(request):
-    return render(request,'dashboard.html')

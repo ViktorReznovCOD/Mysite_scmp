@@ -1,0 +1,102 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scmp contato</title>
+    <link rel="stylesheet" href="{% static 'static/admin/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'static/admin/js/bootstrap.min.js' %}">
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item active"><a class="nav-link" href="{% url 'dashboard' %}">Inicio</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="{% url 'equipamentos' %}">Equipamentos</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="{% url 'logout' %}">Sair</a></li>
+                    {% else %}
+                    <li class="nav-item active"><a class="nav-link" href="{% url 'home' %}">Principal</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'novousuario' %}">Novo usuario</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'sobrenos' %}">Sobre nós</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<!-- ##### Contact Form Area Start ##### -->
+<div class="contact-area section-padding-0-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading">
+                    <h3>Cadastre seu equipamento, {{ user.username }} </h3>
+                </div>
+            </div>
+        </div>
+  
+        <div class="row">
+            <div class="col-12">
+            <p>Todos os campos são obrigatórios</p>
+                <div class="contact-form-area">
+                    <form action="{% url 'equipamentos' %}" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                        <div class="row">
+                            <div class="col-12 col-lg-2">
+                                <label for="acervo_equipamento"><b>Patrimonio</b></label>
+                                <input type="text" id="patrimonio" class="form-control" name="patrimonio" placeholder="P99999" required>
+                            </div>
+                            <div class="col-12 col-lg-2">
+                                <label for="acervo_equipamento"><b>Número de série</b></label>
+                                <input type="text" id="num_serie" class="form-control" name="num_serie" placeholder="" required>
+                            </div>
+                            <div class="col-12 col-lg-2">
+                                <label for="acervo_equipamento"><b>Unidade</b></label>
+                                <input type="text" id="unidade" class="form-control" name="unidade" placeholder="ex: 'Diretoria'" required>
+                            </div><br><br><br>
+                            <div class="col-12 col-lg-2">
+                                <label for="acervo_equipamento"><b>Status</b></label>
+                                <select name="status" id="status">
+                                    <option value="1">Ativo</option>
+                                    <option value="2">Inativo</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-lg-5">
+                                <label for="file"><b>Marca</b></label><br>
+                                <label><b><input type="radio">Dell</b></input></label>
+                                <label><b><input type="radio">Hewlett-Packard (HP)</b></input></label>
+                                <label><b><input type="radio">Positivo</b></input></label>    
+                            </div>                    
+                            
+                            <div class="col-12 col-lg-3">
+                                <label for="file"><b>nota fiscal</b></label>
+                                <input type="text" class="form-control" name="nota fiscal" placeholder="" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="file"><b>Descrição</b></label>
+                                <textarea class="form-control" name="descrição" cols="20" rows="5" placeholder="." required></textarea>
+                            </div>
+                            <div class="col-12 col-lg-3">
+                                <label for="file"><b>Gerar QrCode</b></label>
+                                <input type="file" class="form-control" name="foto_receita" required>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button class="" type="submit">Submeter dados</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div></body>
+</html>

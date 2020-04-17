@@ -11,11 +11,34 @@
 
 </head>
 <body>
-    {% include 'partials/navegacao.html' %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item active"><a class="nav-link" href="{% url 'dashboard' %}">Inicio</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="{% url 'equipamentos' %}">Equipamentos</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="{% url 'logout' %}">Sair</a></li>
+                    {% else %}
+                    <li class="nav-item active"><a class="nav-link" href="{% url 'home' %}">Principal</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'novousuario' %}">Novo usuario</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'sobrenos' %}">Sobre nós</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <br><br><br>
+
 <div class="container-fluid">
-    <div class="card" style="width: 18rem;">
+    <div class="card" style="width: 41rem;">
        <h1>Dashboard</h1>
-       <h2>bem vindo{{ user.nameuser }}</h2>
+       <h2>bem vindo, olá {{ user.username }}</h2>
     </div>
 </div>
 </body>
